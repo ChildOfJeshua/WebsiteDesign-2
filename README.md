@@ -1,4 +1,4 @@
 # Your-Website-Project-Name
-Project for Web Design 1
+Project for Web Design 2 w ChatGPT Adaptations and minor Changes
 
-Link: https://childofjeshua.github.io/Your-Website-Project-Name/
+https://childofjeshua.github.io/WebsiteDesign-2/index.html
