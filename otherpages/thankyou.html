@@ -19,30 +19,71 @@
             <li><a href="thankyou.html"> THANK YOU </a></li>
         </ul>
     </nav>
+<!-- Header -->
 	<header>
 			<div>
-			<h1> COMING SOON! </strong> </h1>
-			<h7 id="title">5.26.2026</h7>
-			<br>
-                        <button id="myButton"> Can't Wait</button>
+				<h1> <strong> THANK YOU </strong> </h1>
 			</div>
 
+			<div>
+
+				<h2> Thank you for your time and engagement. </h2>
+			</div>
+ 	
+			<div>
+				<h3> Scroll down to learn about how to support us!</h3>
+			</div>
 	</header>
 
 
-    <script>
-        // Select elements
-        const title = document.getElementById('title');
-        const button = document.getElementById('myButton');
+    <section>
+        <h1>Contact Form</h1>
+        <form onsubmit="saveFormData(event)">
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
 
-        // Modify content
-        title.textContent = 'Date: 5.26.2026';
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
 
-        // Add event listener
-        button.addEventListener('click', function() {
-            title.textContent = 'Me Neither!';
-        });
-    </script>
+            <!-- Phone Input -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="123-456-7890">
+            </div>
+
+            <!-- Comment Section -->
+            <div class="form-group">
+                <label for="comment">Comments</label>
+                <textarea id="comment" name="comment" placeholder="Enter your comments here..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+<script>
+function saveFormData(event) {
+    event.preventDefault(); // Prevents page reload
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        comment: document.getElementById('comment').value
+    };
+    
+    localStorage.setItem('formSubmission', JSON.stringify(formData));
+    alert('Form data saved!');
+    document.querySelector('form').reset(); // Clears the form
+}
+</script>
 
     <!-- Footer -->
     <footer>
@@ -72,5 +113,5 @@
 
 
 </body>
-</body>
+
 </html>
