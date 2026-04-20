@@ -33,6 +33,14 @@
 			<div>
 				<h3> Scroll down to learn about how to support us!</h3>
 			</div>
+			
+			<div>
+			<h1> COMING SOON! </strong> </h1>
+			<h7 id="title">5.26.2026</h7>
+			<br>
+                        <button id="myButton"> Can't Wait</button>
+			</div>
+
 	</header>
 
 
@@ -72,7 +80,7 @@
 function saveFormData(event) {
     event.preventDefault(); // Prevents page reload
     
-    const formData = {
+const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
         phone: document.getElementById('phone').value,
@@ -83,6 +91,17 @@ function saveFormData(event) {
     alert('Form data saved!');
     document.querySelector('form').reset(); // Clears the form
 }
+        // Select elements
+        const title = document.getElementById('title');
+        const button = document.getElementById('myButton');
+
+        // Modify content
+        title.textContent = 'Date: 5.26.2026';
+
+        // Add event listener
+        button.addEventListener('click', function() {
+            title.textContent = 'Me Neither!';
+        });
 </script>
 
     <!-- Footer -->
