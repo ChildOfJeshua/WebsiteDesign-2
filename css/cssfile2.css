@@ -303,17 +303,436 @@ header h3 {
 
 
 
+/* ============================================
+   BOOK SECTION (PDF & DESCRIPTION)
+   ============================================ */
+
+.book-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-lg);
+    background-color: var(--color-light);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(31, 41, 55, 0.1);
+    border-left: 4px solid var(--color-primary);
+    align-items: flex-start;
+}
+
+/* Left Side: PDF Preview/Book Cover */
+.book-preview {
+    flex: 1 1 177px;
+    min-width: 300px;
+    height: 450px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light);
+    font-weight: 600;
+    font-size: var(--font-size-xl);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.book-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.4);
+}
+
+/* Right Side: Description Content */
+.book-description {
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-description h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.book-description .subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+}
+
+.meta-info {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.description-text {
+    color: var(--color-dark);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-base);
+}
 
 
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .book-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .book-preview {
+        width: 100%;
+        height: 350px;
+    }
+
+    .read-more-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .key-points li::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .meta-info {
+        justify-content: center;
+    }
+}
 
 
 
+/* ============================================
+   IMAGE GALLERY SECTION
+   ============================================ */
+
+.image-gallery-section {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    background-color: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(31, 41, 55, 0.1);
+    border-left: 4px solid var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+/* Image Container */
+.image-wrapper {
+    display: flex;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.image-item {
+    flex: 1;
+    min-width: 0; /* Prevents overflow */
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-normal);
+}
+
+.image-item:hover {
+    transform: scale(1.02);
+}
+
+.image-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+}
+
+/* Text Content */
+.section-content {
+    text-align: center;
+    padding: 0 var(--spacing-sm);
+}
+
+.section-content h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.section-content .description {
+    color: var(--color-dark);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-base);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styling (Reusing .simple-btn logic) */
+.section-content .simple-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    font-family: var(--font-family);
+    color: var(--color-light);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border: none;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-content .simple-btn:hover {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+.section-content .simple-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .image-wrapper {
+        flex-direction: column;
+    }
+
+    .image-item img {
+        height: 250px;
+    }
+    
+    .section-content h2 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* ============================================
+   IMAGE & CTA SECTION (UPDATED WITH TITLE)
+   ============================================ */
+
+.image-cta-section {
+    max-width: 700px;
+    margin: var(--spacing-xl) auto;
+    background-color: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(31, 41, 55, 0.1);
+    border-left: 4px solid var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Title Styling */
+.section-title {
+    font-size: var(--font-size-3xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -1px;
+    /* Optional: Add a subtle gradient text effect like your header */
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Image Layout */
+.image-container {
+    display: flex;
+    gap: var(--spacing-md);
+    width: 100%;
+    justify-content: center;
+}
+
+.image-box {
+    flex: 1;
+    min-width: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-normal);
+}
+
+.image-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+}
+
+.image-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Button Styling */
+.cta-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    font-family: var(--font-family);
+    color: var(--color-light);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border: none;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transition: all var(--transition-normal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+    }
+
+    .image-box img {
+        height: 250px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+}
 
 
 
+/* ============================================
+   CASCADED IMAGE GALLERY
+   ============================================ */
 
+.cascading-gallery {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-lg);
+}
 
+.cascading-gallery .section-title {
+    font-size: var(--font-size-3xl);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* The Grid Container */
+.cascading-grid {
+    /* Creates the cascading effect using columns */
+    column-count: 3;
+    column-gap: var(--spacing-md);
+}
+
+/* Individual Image Items */
+.cascading-item {
+    /* Prevents items from breaking across columns */
+    break-inside: avoid;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    cursor: pointer;
+}
+
+.cascading-item img {
+    width: 100%;
+    height: auto; /* Allows natural height to vary */
+    display: block;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+/* Hover Effects */
+.cascading-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.25);
+    z-index: 2; /* Ensures hover shadow appears above neighbors */
+}
+
+.cascading-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet: 2 Columns */
+@media (max-width: 992px) {
+    .cascading-grid {
+        column-count: 2;
+    }
+}
+
+/* Mobile: 1 Column */
+@media (max-width: 768px) {
+    .cascading-grid {
+        column-count: 1;
+    }
+    
+    .cascading-gallery .section-title {
+        font-size: var(--font-size-2xl);
+    }
+}
 
 
 
